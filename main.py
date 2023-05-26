@@ -29,20 +29,22 @@ def convert():
     form = ConvertText()
     output_text = None
     if form.validate_on_submit():
-        user_input = list(form.text.data.lower().replace('\n', ' '))
+        user_input = form.text.data.lower()
+        lines = user_input.split('\n')   # handles multiple line text
         try:
-            output = []
-            for letter in user_input:
-                if letter == ' ':
-                    output.append('/')
-                elif letter == '\n':
-                    output.append('\n')
-                else:
-                    output.append(morse_dict[letter])
-            output_text = '   '.join(output)
+            output_text = ""
+            for i, line in enumerate(lines):
+                line_output = ""
+                for letter in line:
+                    if letter == ' ':
+                        line_output += '/'    # / symbol for space in morse
+                    else:
+                        line_output += morse_dict.get(letter, '') + ' '
+                output_text += line_output
+                if i < len(lines) - 1:  # Add slash between lines if it's not the last line
+                    output_text += '/ '
         except KeyError:
             flash('Invalid input!')
-            return redirect(url_for('convert'))
     return render_template("converter.html", form=form, output=output_text)
 
 
