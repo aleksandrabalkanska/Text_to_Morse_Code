@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% from 'bootstrap5/form.html' import render_form %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+<div class="container col-xl-10 col-xxl-8 px-4 py-5">
+    <div class="row align-items-center g-lg-5 py-5">
+      <div class="col-lg-7 text-center text-lg-start">
+        <h1 class="display-4 fw-bold lh-1 text-body-emphasis mb-3">Text to Morse Code</h1>
+        <p class="col-lg-10 fs-4">Input your text in the form and watch it be transformed into Morse Code!</p>
+          <p class="col-lg-10 fs-4">You can input letters, numbers and special symbols.</p>
+      </div>
+      <div class="col-md-10 mx-auto col-lg-5">
+       <!-- Convert Form Here -->
+          {{ render_form(form) }}
+          <div class="text-above-card my-2">
+              <p>Morse Code</p>
+          </div>
+          <div class="card my-4">
+  <div class="card-body">
+      {% if output %}
+      {{ output }}
+    {% endif %}
+  </div>
+</div>
+      </div>
+
+    </div>
+  </div>
+{% endblock %}
