@@ -1,9 +1,23 @@
+
 .header-bg {
 background-color: #526D82;
 }
 
+.footer-bg {
+background-color: #27374D;
+}
+
+.footer-container {
+    position: relative;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  min-height: 600px;
+}
+
 .converter-bg {
-background-color: #9DB2BF}
+background-color: #9DB2BF;
+}
 
 .form-label{
 font-size: 20px;
