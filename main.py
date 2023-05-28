@@ -1,4 +1,4 @@
-from flask import Flask, render_template, redirect, url_for, flash
+from flask import Flask, render_template, flash
 from flask_bootstrap import Bootstrap5
 from flask_wtf import FlaskForm
 from wtforms import TextAreaField, SubmitField
