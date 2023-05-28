@@ -22,12 +22,12 @@
 
                 <ul class="nav col-12 col-lg-auto my-2 justify-content-center my-md-0 text-small">
                     <li>
-                        <a href="{{url_for('home')}}" class="nav-link  text-white">
+                        <a href="{{url_for('home')}}" class="nav-link {% if request.path == url_for('home') %} text-warning{% else %}text-white{% endif %}">
                             Home
                         </a>
                     </li>
                     <li>
-                        <a href="{{url_for('convert')}}" class="nav-link text-warning">
+                        <a href="{{url_for('convert')}}" class="nav-link {% if request.path == url_for('convert') %}text-warning{% else %}text-white{% endif %}">
                             Converter
                         </a>
                     </li>
