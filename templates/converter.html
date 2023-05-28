@@ -9,9 +9,8 @@
         <div class="col-lg-7 text-center text-lg-start">
             <h1 class="display-4 fw-bold lh-1 text-body-emphasis mb-3">Text to Morse Code</h1>
             <p class="col-lg-10 fs-4">Input your text in the form and watch it be transformed into Morse Code!</p>
-            <p class="col-lg-10 fs-4">You can input letters, numbers and special symbols.</p>
         </div>
-        <div class="col-md-10 mx-auto col-lg-5">
+        <div class="col-md-10 mx-auto col-lg-5 converter-bg pt-4">
             <!-- Convert Form Here -->
             {% with messages = get_flashed_messages() %}
             {% if messages %}
@@ -20,11 +19,11 @@
                 {% endfor %}
             {% endif %}
             {% endwith %}
-            {{ render_form(form) }}
+            {{ render_form(form, button_style="warning") }}
             <div class="text-above-card my-2">
-                <p>Morse Code</p>
+                <p class="conversion-label">Morse Code</p>
             </div>
-            <div class="card my-4">
+            <div class="card mb-4">
                 <div class="card-body">
                     {% if output %}
                     {{ output }}
